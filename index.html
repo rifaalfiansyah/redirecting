@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .button.active {
+            pointer-events: auto;
+            opacity: 1;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        
+        #countdown {
+            font-size: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Please Wait...</h1>
+        <p>You will be redirected to the destination link in a few seconds.</p>
+        <p><span id="countdown">10</span></p>
+        <a href="https://jpst.it/4155X" class="button" id="continue-button">Continue</a>
+    </div>
+
+    <script>
+        let countdown = 10; // Countdown time in seconds
+        const countdownElement = document.getElementById("countdown");
+        const continueButton = document.getElementById("continue-button");
+
+        // Update the countdown every second
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown === 0) {
+                clearInterval(interval);
+                // Activate the button
+                continueButton.classList.add("active");
+                continueButton.style.pointerEvents = "auto";
+                continueButton.style.opacity = "1";
+            }
+        }, 1000);
+
+        // Automatic redirection after 10 seconds
+        setTimeout(() => {
+            window.location.href = "https://jpst.it/4155X";
+        }, 10000);
+    </script>
+</body>
+</html>
